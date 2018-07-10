@@ -13,3 +13,10 @@ function addMessage(element, message){
 
 var first = document.getElementById("first");
 addMessage(first, "Page is now loading");
+
+// Next, we attach mousemove event handler to body
+
+document.body.addEventListener("mousemove", function(){
+  var second = document.getElementById("second");
+  addMessage(second, "Event: mousemove");
+})
