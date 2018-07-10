@@ -20,3 +20,10 @@ document.body.addEventListener("mousemove", function(){
   var second = document.getElementById("second");
   addMessage(second, "Event: mousemove");
 })
+
+// now we addEventListener that registers a click
+
+document.body.addEventListener("click", function(){
+  var second = document.getElementById("second");
+  addMessage(second, "Event: click");
+})
