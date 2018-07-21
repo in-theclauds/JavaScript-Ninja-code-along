@@ -85,32 +85,61 @@
 
 // FUNCTION AS OBJECTS
 
-var ninja = {};
-ninja.name= "hitsuke"; //Creates an object and assigns a new porperty to it
+// var ninja = {};
+// ninja.name= "hitsuke"; //Creates an object and assigns a new porperty to it
 
-var wieldSword = function() {}; // creates a function and assigns a new property to it
-wieldSword.swordType = "katana";
-
-
+// var wieldSword = function() {}; // creates a function and assigns a new property to it
+// wieldSword.swordType = "katana";
 
 
 
-// STORING A COLLECTION OF UNIQUE FUNCTIONS
 
-var store = {
-  nextId: 1, // Keeps track of the next avail ID to be assigned
-  cache: {}, // creates an object to serve as a chache (where we'll store functions)
-  add: function(fn) {
-    if (!fn.id) {
-      fn.id = this.nextId++;
-      this.cache[fn.id] = fn;
-      return true;
+
+// // STORING A COLLECTION OF UNIQUE FUNCTIONS
+
+// var store = {
+//   nextId: 1, // Keeps track of the next avail ID to be assigned
+//   cache: {}, // creates an object to serve as a chache (where we'll store functions)
+//   add: function(fn) {
+//     if (!fn.id) {
+//       fn.id = this.nextId++;
+//       this.cache[fn.id] = fn;
+//       return true;
+//     }
+//   }
+// };
+
+// function ninja(){}
+// assert( store.add( ninja ),
+// "function was safely added.");
+// assert( !store.add( ninja ),
+// "sut it was only added once."); //tests tht it all works out as planned
+
+
+
+
+   //Memoizing previously computed values
+
+   function isPrime( value ){
+    if (!isPrime.answers){
+    sPrime.answers = {};
     }
+  
+    if (isPrime.answers[ value ] !== undefined) {
+      return isPrime.answers[value];
+    }
+    
+    var prime = value !== 1; // 1 is not a prime
+   
+    for (var i = 2; i < value; i++) {
+      if (value % i === 0) {
+        prime = false;
+        break;
+      }
+    }
+    return isPrime.answers[value] = prime;
   }
-};
-
-function ninja(){}
-  assert( store.add( ninja ),
-         "function was safely added.");
-  assert( !store.add( ninja ),
-         "sut it was only added once."); //tests tht it all works out as planned
+  
+  assert(isPrime(5), "5 is Prime!" );
+  assert(isPrime.answers[5], "the answer was cached!" );
+  
