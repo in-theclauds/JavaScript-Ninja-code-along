@@ -118,32 +118,48 @@
 
 
 
-   //Memoizing previously computed values
+//    //Memoizing previously computed values
 
-   function isPrime( value ){
-    if (!isPrime.answers){ //creates cache
-    sPrime.answers = {};
-    }
+//    function isPrime( value ){
+//     if (!isPrime.answers){ //creates cache
+//     sPrime.answers = {};
+//     }
   
-    if (isPrime.answers[ value ] !== undefined) {
-      return isPrime.answers[value]; //checks for values
-    }
+//     if (isPrime.answers[ value ] !== undefined) {
+//       return isPrime.answers[value]; //checks for values
+//     }
     
-    var prime = value !== 1; // 1 is not a prime
+//     var prime = value !== 1; // 1 is not a prime
    
-    for (var i = 2; i < value; i++) {
-      if (value % i === 0) {
-        prime = false;
-        break;
-      }
-    }
-    return isPrime.answers[value] = prime; // stores computed value
-  }
+//     for (var i = 2; i < value; i++) {
+//       if (value % i === 0) {
+//         prime = false;
+//         break;
+//       }
+//     }
+//     return isPrime.answers[value] = prime; // stores computed value
+//   }
   
-  assert(isPrime(5), "5 is Prime!" );
-  assert(isPrime.answers[5], "the answer was cached!" ); // tests that everything works
+//   assert(isPrime(5), "5 is Prime!" );
+//   assert(isPrime.answers[5], "the answer was cached!" ); // tests that everything works
   
 
-  if (!isPrime.answers) {
-    isPrime.answers = {};
+//   if (!isPrime.answers) {
+//     isPrime.answers = {};
+// }
+
+// EXAMPLES OF FUNCTION DECLERATIONS
+
+
+function samurai() { 
+  return "samurai here";
+} //defies function samurai in global scope
+
+function ninja() { //defines function Ninja
+
+  function hiddenNinja() {
+    return "ninja here";
+  } //defies function hiddin ninja within the existing ninja function
+
+  return hiddenNinja();
 }
