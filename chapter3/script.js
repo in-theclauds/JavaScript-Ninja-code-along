@@ -108,3 +108,9 @@ var store = {
     }
   }
 };
+
+function ninja(){}
+  assert( store.add( ninja ),
+         "function was safely added.");
+  assert( !store.add( ninja ),
+         "sut it was only added once."); //tests tht it all works out as planned
