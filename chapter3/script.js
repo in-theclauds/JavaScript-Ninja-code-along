@@ -41,5 +41,20 @@ ninja.data = function() {}; //assigns a new function as a property of another ob
 
 
 
+// Passed as arguments to other functions
+function call(ninjaFunction){
+  ninjaFunction();
+}
+call (function() {}); //a newly created function passed as an argument to a function
 
 
+// returned as values from functions 
+
+function returnNewNinjaFunction() {
+  return function() {} //returns new function
+}
+
+
+// They can also possess properties that are dynamically created and assigned
+var ninjaFunction = function() {};
+ninjaFunction.name = "clauds"
