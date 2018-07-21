@@ -64,20 +64,47 @@
 
 // Simple callback ex.
 
-var text = "Domo arogato!";
-report("Before defining functions");
+// var text = "Domo arogato!";
+// report("Before defining functions");
 
-function useless(ninjaCallback) {
-  report("In Useless function");
-  return ninjaCallback();   // defies a function tht takes a callback function and immediately invokes it
-}
+// function useless(ninjaCallback) {
+//   report("In Useless function");
+//   return ninjaCallback();   // defies a function tht takes a callback function and immediately invokes it
+// }
 
-function getText() {
-  report (" in getText function"); // defies a simple function that returns a global variable
-  return text;
-}
+// function getText() {
+//   report (" in getText function"); // defies a simple function that returns a global variable
+//   return text;
+// }
 
-assert (useless(getText) === text,
-"the useless function works! " + text);  // calls our useless function with the getText funct. as a callback
+// assert (useless(getText) === text,
+// "the useless function works! " + text);  // calls our useless function with the getText funct. as a callback
 
-report("After the calls have been made");
+// report("After the calls have been made");
+
+
+// FUNCTION AS OBJECTS
+
+var ninja = {};
+ninja.name= "hitsuke"; //Creates an object and assigns a new porperty to it
+
+var wieldSword = function() {}; // creates a function and assigns a new property to it
+wieldSword.swordType = "katana";
+
+
+
+
+
+// STORING A COLLECTION OF UNIQUE FUNCTIONS
+
+var store = {
+  nextId: 1, // Keeps track of the next avail ID to be assigned
+  cache: {}, // creates an object to serve as a chache (where we'll store functions)
+  add: function(fn) {
+    if (!fn.id) {
+      fn.id = this.nextId++;
+      this.cache[fn.id] = fn;
+      return true;
+    }
+  }
+};
