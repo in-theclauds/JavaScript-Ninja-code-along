@@ -23,3 +23,23 @@ function returnNewNinja() {
 
 var ninja= {};
 ninja.name = "Clauds";
+
+
+
+
+
+// FUNCTIONS AS FIRST CLASS OBJECTS 
+
+
+// We say funtions are first class objects, which can also be:
+
+// Assigned to variables, aray entries, and properties of other objects
+
+var ninjaFunction = function()  {};   -- // assigns a new function to a variable \\
+ninjaArray.push(function(){}); // Adds a new function to an array\\
+ninja.data = function() {}; //assigns a new function as a property of another object
+
+
+
+
+
